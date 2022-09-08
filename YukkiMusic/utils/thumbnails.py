@@ -79,7 +79,7 @@ async def gen_thumb(videoid):
         name_font = ImageFont.truetype("assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
-        draw.text((5, 5), f"CARBONxMUSIC", fill="white", font=name_font)
+        draw.text((5, 5), f"JerryMusicBot", fill="white", font=name_font)
         try:
             if para[0]:
                 text_w, text_h = draw.textsize(f"{para[0]}", font=font)
