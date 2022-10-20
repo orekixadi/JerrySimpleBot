@@ -7,6 +7,7 @@ import textwrap
 import aiofiles
 import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
+
 from youtubesearchpython.future import VideosSearch
 
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
