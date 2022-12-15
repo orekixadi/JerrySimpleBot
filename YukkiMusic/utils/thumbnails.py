@@ -20,14 +20,6 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
 
 
-def add_corners(im):
-    bigsize = (im.size[0] * 3, im.size[1] * 3)
-    mask = Image.new('L', bigsize, 0)
-    ImageDraw.Draw(mask).ellipse((0, 0) + bigsize, fill=255)
-    mask = mask.resize(im.size, Image.ANTIALIAS)
-    mask = ImageChops.darker(mask, im.split()[-1])
-    im.putalpha(mask)
-
 
 async def gen_thumb(videoid):
     anime = random.choice(files)
@@ -76,30 +68,6 @@ async def gen_thumb(videoid):
 
         image3 = changeImageSize(1280, 720, bg)
         image5 = image3.convert("RGBA")
-        Image.alpha_composite(background, image5).save(f"cache/temp{videoid}.png")
-
-        Xcenter = youtube.width / 2
-        Ycenter = youtube.height / 2
-        x1 = Xcenter - 250
-        y1 = Ycenter - 250
-        x2 = Xcenter + 250
-        y2 = Ycenter + 250
-        logo = youtube.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.ANTIALIAS)
-        logo.save(f"cache/chop{videoid}.png")
-        if not os.path.isfile(f"cache/cropped{videoid}.png"):
-            im = Image.open(f"cache/chop{videoid}.png").convert('RGBA')
-            add_corners(im)
-            im.save(f"cache/cropped{videoid}.png")
-
-        crop_img = Image.open(f"cache/cropped{videoid}.png")
-        logo = crop_img.convert("RGBA")
-        logo.thumbnail((365, 365), Image.ANTIALIAS)
-        width = int((1280 - 365)/ 2)
-        background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width + 2, 134), mask=logo)
-
-
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("assets/font2.ttf", 45)
         font2 = ImageFont.truetype("assets/font2.ttf", 70)
