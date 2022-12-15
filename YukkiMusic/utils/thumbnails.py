@@ -13,8 +13,8 @@ from youtubesearchpython.__future__ import VideosSearch
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
 
 
-themes = ["bgreen", "blue", "colorfull", "dgreen", "hgreen", "lgreen", "lyellow", "orange", "pink", "purple", "rainbow", "red", "sky", "thumbnail", "yellow"]
-colors = ["white", "black", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
+themes = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+colors = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
