@@ -65,7 +65,7 @@ async def gen_thumb(videoid):
         images = random.choice(themes)
         border = random.choice(colors)
         image1 = Image.open(f"cache/thumb{videoid}.png")
-        image2 = Image.open(f"back/{images}.PNG")
+        image2 = Image.open(f"back/{images}.png")
         image3 = changeImageSize(1280, 720, image1)
         image4 = changeImageSize(1280, 720, image2)
         image5 = image3.convert("RGBA")
@@ -74,17 +74,17 @@ async def gen_thumb(videoid):
         logo = Image.open("cache/temp.png")
         img = ImageOps.expand(logo, border=10, fill=f"{border}")
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("assets/font.otf", 32)
+        font = ImageFont.truetype("assets/font.ttf", 32)
         draw.text((190, 555), f"Title: {title[:50]} ...", (255, 255, 255), font=font)
         draw.text((190, 595), f"Duration: {duration}", (255, 255, 255), font=font)
         draw.text((190, 635), f"Views: {views}", (255, 255, 255), font=font)
         draw.text((190, 675), f"Oreki", (255, 255, 255), font=font)
         try:
             os.remove(f"cache/thumb{videoid}.png")
-            os.remove(f"cache/temp.png")
         except:
             pass
-        img.save(f"cache/{videoid}.png")
-        return f"cache/{videoid}.png"
-    except Exception:
+        background.save(f"cache/q{videoid}_{anime}.png")
+        return f"cache/q{videoid}_{anime}.png"
+    except Exception as e:
+        print(e)
         return YOUTUBE_IMG_URL
