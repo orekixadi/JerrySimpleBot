@@ -11,10 +11,7 @@ from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
 from youtubesearchpython.__future__ import VideosSearch
 
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
-
-
-themes = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-colors = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+from back import files
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
