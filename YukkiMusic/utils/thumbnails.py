@@ -1,4 +1,4 @@
-# Powered By @AdityaHalder
+# Powered By #Adi
 
 import os
 import re
@@ -10,7 +10,7 @@ from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
                  ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
 
-from YukkiMusic.utilities.config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
+from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
 
 
 themes = ["bgreen", "blue", "colorfull", "dgreen", "hgreen", "lgreen", "lyellow", "orange", "pink", "purple", "rainbow", "red", "sky", "thumbnail", "yellow"]
