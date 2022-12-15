@@ -23,8 +23,8 @@ def changeImageSize(maxWidth, maxHeight, image):
 
 
 async def gen_thumb(videoid):
-    if os.path.isfile(f"cache/{videoid}.png"):
-        return f"cache/{videoid}.png"
+    if os.path.isfile(f"cache/{videoid}_{anime}.png"):
+        return f"cache/{videoid}_{anime}.png"
 
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
@@ -59,10 +59,8 @@ async def gen_thumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
 
-        images = random.choice(themes)
-        border = random.choice(colors)
         image1 = Image.open(f"cache/thumb{videoid}.png")
-        image2 = Image.open(f"back/{images}.png")
+        image2 = Image.open(f"back/{anime}.png")
         image3 = changeImageSize(1280, 720, image1)
         image4 = changeImageSize(1280, 720, image2)
         image5 = image3.convert("RGBA")
