@@ -100,8 +100,6 @@ async def gen_thumb(videoid):
         print(e)
         return YOUTUBE_IMG_URL
 
-
-
 async def gen_qthumb(videoid):
     anime = random.choice(files)
     if os.path.isfile(f"cache/q{videoid}_{anime}.png"):
