@@ -9,11 +9,11 @@ from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
                  ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
 
-from AdityaHalder.utilities.config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
+from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
 
 
-themes = ["bgreen", "blue", "colorfull", "dgreen", "hgreen", "lgreen", "lyellow", "orange", "pink", "purple", "rainbow", "red", "sky", "thumbnail", "yellow"]
-colors = ["white", "black", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
+themes = ["blue", "dblue", "dpurple", "dred", "green", "orange", "purple", "red"]
+colors = ["red", "purple", "orange", "green", "dred", "dpurple", "dblue", "blue"]
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
