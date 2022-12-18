@@ -2,7 +2,7 @@ from typing import Dict, List, Union
 
 from pyrogram import Client, filters
 
-from config import MUSIC_BOT_NAME, db
+from config import MUSIC_BOT_NAME
 from YukkiMusic.utils.database import _get_theme, get_theme, save_theme
 
 themes = [
