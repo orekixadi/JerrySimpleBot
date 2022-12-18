@@ -20,6 +20,15 @@ def changeImageSize(maxWidth, maxHeight, image):
     return newImage
 
 
+def add_corners(im):
+    bigsize = (im.size[0] * 3, im.size[1] * 3)
+    mask = Image.new('L', bigsize, 0)
+    ImageDraw.Draw(mask).ellipse((0, 0) + bigsize, fill=255)
+    mask = mask.resize(im.size, Image.ANTIALIAS)
+    mask = ImageChops.darker(mask, im.split()[-1])
+    im.putalpha(mask)
+
+
 async def gen_thumb(videoid):
     anime = random.choice(files)
     if os.path.isfile(f"cache/{videoid}_{anime}.png"):
@@ -85,7 +94,7 @@ async def gen_thumb(videoid):
 
         crop_img = Image.open(f"cache/cropped{videoid}.png")
         logo = crop_img.convert("RGBA")
-        logo.thumbnail((365, 365), Image.ANTIALIAS)
+        logo.thumbnail((0, 0), Image.ANTIALIAS)
         width = int((1280 - 365)/ 2)
         background = Image.open(f"cache/temp{videoid}.png")
         background.paste(logo, (width + 2, 134), mask=logo)
