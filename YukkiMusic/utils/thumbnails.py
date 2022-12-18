@@ -200,7 +200,7 @@ async def gen_qthumb(videoid):
         logo.thumbnail((100, 100), Image.ANTIALIAS)
         width = int((1280 - 100)/ 8)
         background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width + 2, 134), mask=logo)
+        background.paste(logo, (width + 8, 14), mask=logo)
 
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("assets/font2.ttf", 45)
