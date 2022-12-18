@@ -197,10 +197,10 @@ async def gen_qthumb(videoid):
 
         crop_img = Image.open(f"cache/cropped{videoid}.png")
         logo = crop_img.convert("RGBA")
-        logo.thumbnail((100, 100), Image.ANTIALIAS)
-        width = int((1280 - 100)/ 8)
+        logo.thumbnail((365, 100), Image.ANTIALIAS)
+        width = int((1280 - 50)/ 2)
         background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width + 8, 14), mask=logo)
+        background.paste(logo, (width + 2, 134), mask=logo)
 
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("assets/font2.ttf", 45)
