@@ -173,7 +173,7 @@ async def gen_qthumb(videoid):
         bg = Image.open(f"back/{anime}.PNG")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        background = image2.filter(filter=ImageFilter.BoxBlur(0))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
 
@@ -200,7 +200,7 @@ async def gen_qthumb(videoid):
         logo.thumbnail((0, 0), Image.ANTIALIAS)
         width = int((1280 - 0)/ 1)
         background = Image.open(f"cache/temp{videoid}.png")
-        background.paste(logo, (width + 2, 134), mask=logo)
+        background.paste(logo, (width + 2, 0), mask=logo)
 
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("assets/font2.ttf", 45)
